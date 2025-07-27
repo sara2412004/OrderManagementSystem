@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Persistence
 {
-    internal class UnitOfWork(OrderSystemDbcontext _dbcontext) : IUnitOfWork
+    public class UnitOfWork(OrderSystemDbcontext _dbcontext) : IUnitOfWork
     {
         private readonly Dictionary<string, object> _repositories = [];
 
