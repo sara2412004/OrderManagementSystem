@@ -1,6 +1,9 @@
 
+using Domain.Contracts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Persistence;
+using Services.MappingProfiles;
 
 namespace OrderManagementSystem.web
 {
@@ -22,6 +25,9 @@ namespace OrderManagementSystem.web
                 Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
             });
+            builder.Services.AddScoped<IUnitOfWork,IUnitOfWork>();
+
+            builder.Services.AddAutoMapper(typeof(OrderProfile).Assembly);
 
             var app = builder.Build();
 
