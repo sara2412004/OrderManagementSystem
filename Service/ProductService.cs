@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    internal class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper) : IProductService
+    public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper) : IProductService
     {
         public async Task AddProductAsync(CreateProductDTO createProduct)
         {
