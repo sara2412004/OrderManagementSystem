@@ -6,6 +6,8 @@ using Persistence;
 using Services.MappingProfiles;
 using Persistence;
 using Domain.Contracts;
+using ServiceAbstractions;
+using Services;
 
 
 namespace OrderManagementSystem.web
@@ -32,6 +34,12 @@ namespace OrderManagementSystem.web
 
             builder.Services.AddAutoMapper(typeof(OrderProfile).Assembly);
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
+            builder.Services.AddScoped<IInvoiceService,InvoiceService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+           // builder.Services.AddScoped<IUserService, UserService>();
+
 
             var app = builder.Build();
 
